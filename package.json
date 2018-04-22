@@ -1,0 +1,35 @@
+{
+  "name": "4letters",
+  "version": "1.0.0",
+  "description": "Four has Four Letters",
+  "main": ".app/index.js",
+  "scripts": {
+    "build": "babel src -d .app",
+    "start": "node .app/index",
+    "test": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danwdart/4letters.git"
+  },
+  "keywords": [
+    "4",
+    "letters",
+    "maths"
+  ],
+  "author": "Dan Dart <npm@dandart.co.uk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danwdart/4letters/issues"
+  },
+  "homepage": "https://github.com/danwdart/4letters#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42",
+    "@babel/preset-stage-0": "^7.0.0-beta.42",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "eslint": "^4.19.1"
+  }
+}

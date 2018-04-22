@@ -1,0 +1,19 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "exclude": [
+                    "transform-regenerator"
+                ],
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        "@babel/preset-stage-0"
+    ],
+    "plugins": [
+        "dynamic-import-node"
+    ]
+}
