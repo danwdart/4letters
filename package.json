@@ -24,7 +24,7 @@
   "homepage": "https://github.com/danwdart/4letters#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.0",
     "eslint-plugin-babel": "^5.3.0"
   }
 }
