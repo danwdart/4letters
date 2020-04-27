@@ -1,4 +1,4 @@
-cabal-version:       >=2.0.0
+cabal-version:       >=1.10
 name:                4letters
 version:             0.0.2
 synopsis:            Inspired by Matt Parker's "Four has Four Letters"

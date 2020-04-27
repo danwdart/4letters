@@ -2,5 +2,4 @@ resolver: lts-15.8
 packages:
 - .
 extra-deps:
-  - extra-1.7.1
 allow-newer: true
