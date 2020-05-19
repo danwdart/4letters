@@ -1,13 +1,14 @@
+{-# LANGUAGE UnicodeSyntax #-}
 module Parser.Words.FrenchDigits (parse) where
 
-import qualified Data.Map as Map
-import Data.Maybe
-import Text.Read
+import qualified Data.Map   as Map
+import           Data.Maybe
+import           Text.Read
 
-charToInteger :: Char -> Maybe Integer
+charToInteger ∷ Char → Maybe Integer
 charToInteger = readMaybe . return
 
-wordMap :: Map.Map Integer String
+wordMap ∷ Map.Map Integer String
 wordMap = Map.fromList [
     (0, "zero"),
     (1, "un"),
@@ -20,5 +21,5 @@ wordMap = Map.fromList [
     (8, "huit"),
     (9, "neuf")]
 
-parse :: Integer -> Integer
+parse ∷ Integer → Integer
 parse = toInteger . sum . map length . mapMaybe ((Map.!?) wordMap) . mapMaybe charToInteger . show
