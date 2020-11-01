@@ -1,5 +1,6 @@
-resolver: lts-15.11
+resolver: nightly-2020-11-01
 packages:
 - .
 extra-deps:
-allow-newer: true
+ghc-options:
+  4letters: -j16 -Wall -Werror
