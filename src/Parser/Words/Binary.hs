@@ -4,10 +4,9 @@ module Parser.Words.Binary (parse) where
 import           Data.Digits
 import qualified Data.Map    as Map
 import           Data.Maybe
-import           Text.Read
 
-charToInteger ∷ Char → Maybe Integer
-charToInteger = readMaybe . return
+-- charToInteger ∷ Char → Maybe Integer
+-- charToInteger = readMaybe . return
 
 wordMap ∷ Map.Map Integer String
 wordMap = Map.fromList [
