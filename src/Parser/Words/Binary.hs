@@ -15,4 +15,4 @@ wordMap = Map.fromList [
     ]
 
 parse ∷ Integer → Integer
-parse = toInteger . sum . map length . mapMaybe ((Map.!?) wordMap) . digits 2
+parse = toInteger . sum . fmap length . mapMaybe (wordMap Map.!?) . digits 2

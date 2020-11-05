@@ -23,7 +23,7 @@ iter ∷ (Integer → Integer) → Integer → [Integer]
 iter fn x = takeWhileNotRepeating $ iterate fn x
 
 biggest ∷ (Integer → Integer) → [(Integer, Int, [Integer])]
-biggest fn = nubOrdOn (\(_, b, _) -> b) $ map (\x -> (x, length $ iter fn x, iter fn x)) [1..100000]
+biggest fn = nubOrdOn (\(_, b, _) -> b) $ fmap (\x -> (x, length $ iter fn x, iter fn x)) [1..100000]
 
 main ∷ IO ()
 main = print $ biggest EnDig.parse

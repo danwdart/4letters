@@ -22,4 +22,4 @@ wordMap = Map.fromList [
     (9, "neuf")]
 
 parse ∷ Integer → Integer
-parse = toInteger . sum . map length . mapMaybe ((Map.!?) wordMap) . mapMaybe charToInteger . show
+parse = toInteger . sum . fmap length . mapMaybe (wordMap Map.!?) . mapMaybe charToInteger . show
