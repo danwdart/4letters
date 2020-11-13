@@ -1,15 +1,18 @@
-{-# LANGUAGE UnicodeSyntax #-}
+
+{-# LANGUAGE OverloadedLists #-}
+{-# LANGUAGE UnicodeSyntax   #-}
 module Parser.Words.FrenchDigits (parse) where
 
+import           Data.Map   (Map)
 import qualified Data.Map   as Map
 import           Data.Maybe
 import           Text.Read
 
 charToInteger ∷ Char → Maybe Integer
-charToInteger = readMaybe . return
+charToInteger = readMaybe . pure
 
-wordMap ∷ Map.Map Integer String
-wordMap = Map.fromList [
+wordMap ∷ Map Integer String
+wordMap = [
     (0, "zero"),
     (1, "un"),
     (2, "deux"),

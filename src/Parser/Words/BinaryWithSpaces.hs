@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE UnicodeSyntax   #-}
-module Parser.Words.Binary (parse) where
+module Parser.Words.BinaryWithSpaces (parse) where
 
 import           Data.Digits
 import           Data.Map    (Map)
@@ -14,4 +14,4 @@ wordMap = [
     ]
 
 parse ∷ Integer → Integer
-parse = toInteger . sum . fmap length . mapMaybe (wordMap Map.!?) . digits 2
+parse = toInteger . length . unwords . mapMaybe (wordMap Map.!?) . digits 2
