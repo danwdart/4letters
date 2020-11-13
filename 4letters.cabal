@@ -15,7 +15,9 @@ executable 4letters
   main-is:             Main.hs
   other-modules:
     Parser.Words.Binary
+    Parser.Words.BinaryOh
     Parser.Words.BinaryWithSpaces
+    Parser.Words.BinaryOhWithSpaces
     Parser.Words.EnglishDigits
     Parser.Words.FrenchDigits
   build-depends:       base >=4.12.0.0, containers, digits, extra, mtl
