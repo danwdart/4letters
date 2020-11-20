@@ -1,14 +1,14 @@
 {-# LANGUAGE UnicodeSyntax #-}
 module Main where
 
-import Data.List.Extra ( group, sort, nubOrdOn )
-import qualified Parser.Words.EnglishDigits as EnDig
+import           Data.List.Extra                 (group, nubOrdOn, sort)
+import qualified Parser.Words.EnglishDigits      as EnDig
 -- import qualified Parser.Words.FrenchDigits as FrDig
-import qualified Parser.Words.Binary as BinDig
-import qualified Parser.Words.BinaryOh as BinDigOh
-import qualified Parser.Words.BinaryWithSpaces as BinDigSpaces
+import           Data.Bifunctor                  (Bifunctor (first))
+import qualified Parser.Words.Binary             as BinDig
+import qualified Parser.Words.BinaryOh           as BinDigOh
 import qualified Parser.Words.BinaryOhWithSpaces as BinDigOhSpaces
-import Data.Bifunctor (Bifunctor(first))
+import qualified Parser.Words.BinaryWithSpaces   as BinDigSpaces
 
 takeUntilRepeat ∷ Eq a ⇒ [a] → [a]
 takeUntilRepeat [] = []
@@ -26,10 +26,10 @@ biggest fn = nubOrdOn (\(_, b, _) -> b) $ fmap (\x -> (x, length $ tail (iter fn
 alls ∷ (Integer → Integer) → [(Integer, Int, [Integer])]
 alls fn = fmap (\x -> (x, length $ iter fn x, iter fn x)) [1..1000000]
 
-contract :: Functor f => f (a, b1, [b2]) -> f (a, b2)
+contract ∷ Functor f ⇒ f (a, b1, [b2]) → f (a, b2)
 contract = fmap (\(a, _, c) -> (a, last c))
 
-freq :: Ord a => [a] -> [(a, Int)]
+freq ∷ Ord a ⇒ [a] → [(a, Int)]
 freq = fmap (first head . (\x -> ([head x], length x))) . group . sort
 
 main ∷ IO ()
