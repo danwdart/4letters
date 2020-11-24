@@ -9,4 +9,4 @@ snapshots:
     size: 554192
     url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2020/11/21.yaml
     sha256: edcf9a543a41632cec3fb981202c7b6fc6bdf5d8b4ef03eded442dcfc56dd74f
-  original: nightly-2020-11-21
+  original: nightly-2020-11-23
