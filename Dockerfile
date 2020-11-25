@@ -1,5 +1,4 @@
-FROM fpco/stack-build as builder
-COPY . .
+FROM dandart/4letters:build as builder
 RUN stack install
 
 FROM ubuntu
