@@ -19,7 +19,6 @@ let
     buildInputs = [
       nixpkgs.haskellPackages.cabal-install
       nixpkgs.wget
-      nixpkgs.haskellPackages.stack
       nixpkgs.haskellPackages.ghcid
       nixpkgs.haskellPackages.stylish-haskell
       nixpkgs.haskellPackages.hlint
