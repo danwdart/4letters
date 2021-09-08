@@ -1,5 +1,5 @@
-{ nixpkgs ? import <unstable> {},
-  compiler ? "ghc901" }: # time-compat tests fail on 901
+{ nixpkgs ? import  (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {},
+  compiler ? "ghc901" }: # splitmix doesn't compile on 9.2.1
 let
   gitignore = nixpkgs.nix-gitignore.gitignoreSourcePure [ ./.gitignore ];
   myHaskellPackages = nixpkgs.pkgs.haskell.packages.${compiler}.override {
