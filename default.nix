@@ -2,6 +2,7 @@
   compiler ? "ghc901" }: # splitmix doesn't compile on 9.2.1
 let
   gitignore = nixpkgs.nix-gitignore.gitignoreSourcePure [ ./.gitignore ];
+  lib = nixpkgs.pkgs.haskell.lib;
   myHaskellPackages = nixpkgs.pkgs.haskell.packages.${compiler}.override {
     overrides = self: super: rec {
       digits = (self.callHackage "digits" "0.3.1" {}).overrideDerivation (self: {
@@ -16,16 +17,20 @@ let
     packages = p: [
       p.fourletters
     ];
-    buildInputs = [
-      nixpkgs.haskellPackages.cabal-install
-      nixpkgs.wget
-      nixpkgs.haskellPackages.ghcid
-      nixpkgs.haskellPackages.stylish-haskell
-      nixpkgs.haskellPackages.hlint
+    buildInputs = with nixpkgs; with haskellPackages; [
+      apply-refact
+      cabal-install
+      ghcid
+      hlint
+      implicit-hie
+      krank
+      stan
+      stylish-haskell
+      weeder
     ];
     withHoogle = false;
   };
-  exe = nixpkgs.haskell.lib.justStaticExecutables (myHaskellPackages.fourletters);
+  exe = lib.justStaticExecutables (myHaskellPackages.fourletters);
 in
 {
   inherit shell;
