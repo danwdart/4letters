@@ -1,9 +1,15 @@
-{ nixpkgs ? import  (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/master.tar.gz") {},
-  compiler ? "ghc921" }:
+{
+  nixpkgs ? import  (builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/haskell-updates.tar.gz") {},
+  haskell-tools ? import (builtins.fetchTarball "https://github.com/danwdart/haskell-tools/archive/master.tar.gz") {},
+  compiler ? "ghc922"
+}:
 let
   gitignore = nixpkgs.nix-gitignore.gitignoreSourcePure [ ./.gitignore ];
-  lib = nixpkgs.pkgs.haskell.lib;
-  myHaskellPackages = nixpkgs.pkgs.haskell.packages.${compiler}.override {
+  haskell = nixpkgs.pkgs.haskell;
+  haskellPackages = haskell.packages;
+  lib = haskell.lib;
+  tools = haskell-tools compiler;
+  myHaskellPackages = haskellPackages.${compiler}.override {
     overrides = self: super: rec {
       digits = (self.callHackage "digits" "0.3.1" {}).overrideDerivation (self: {
         prePatch = ''
@@ -17,20 +23,7 @@ let
     packages = p: [
       p.fourletters
     ];
-    buildInputs = with myHaskellPackages; with nixpkgs; with haskellPackages; [
-      apply-refact
-      cabal-install
-      ghcid
-      ghcide
-      haskell-language-server
-      hasktags
-      hlint
-      implicit-hie
-      krank
-      stan
-      stylish-haskell
-      weeder
-    ];
+    buildInputs = tools.defaultBuildTools;
     withHoogle = false;
   };
   exe = lib.justStaticExecutables (myHaskellPackages.fourletters);
