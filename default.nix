@@ -16,7 +16,7 @@ let
           echo -e "> import Distribution.Simple\n> main = defaultMain" > Setup.lhs
         '';
       });
-      fourletters = self.callCabal2nix "fourletters" (gitignore ./.) {};
+      fourletters = lib.dontHaddock (self.callCabal2nix "fourletters" (gitignore ./.) {});
     };
   };
   shell = myHaskellPackages.shellFor {
