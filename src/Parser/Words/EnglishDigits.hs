@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE UnicodeSyntax   #-}
 module Parser.Words.EnglishDigits (parse) where
 import           Data.Map   (Map)
 import qualified Data.Map   as Map

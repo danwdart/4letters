@@ -1,4 +1,3 @@
-{-# LANGUAGE UnicodeSyntax #-}
 module Main where
 
 import           Data.List.Extra                 (group, nubOrdOn, sort)

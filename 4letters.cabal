@@ -20,7 +20,8 @@ executable 4letters
     Parser.Words.BinaryOhWithSpaces
     Parser.Words.EnglishDigits
     Parser.Words.FrenchDigits
+  default-language:    GHC2021
+  default-extensions:  UnicodeSyntax
   build-depends:       base >=4.16.0.0, containers, digits, extra, mtl
   hs-source-dirs:      src
-  default-language:    Haskell2010
   ghc-options:         -Wall -Werror -haddock -threaded -rtsopts -with-rtsopts=-N

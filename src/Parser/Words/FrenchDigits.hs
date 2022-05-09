@@ -1,6 +1,5 @@
 
 {-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE UnicodeSyntax   #-}
 module Parser.Words.FrenchDigits (parse) where
 
 import           Data.Map   (Map)

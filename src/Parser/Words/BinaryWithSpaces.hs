@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE UnicodeSyntax   #-}
 module Parser.Words.BinaryWithSpaces (parse) where
 
 import           Data.Digits
