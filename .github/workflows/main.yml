@@ -21,7 +21,7 @@ jobs:
       #   ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
         mkdir -p ~/.ssh/
-        echo << EOT
+        cat << EOT
         ${{ secrets.SSH_PRIVATE_KEY }}
         EOT > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
