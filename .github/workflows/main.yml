@@ -28,7 +28,7 @@ jobs:
         ssh-keyscan -t rsa ${{ vars.CACHE_SERVER }} >> ~/.ssh/known_hosts
     - name: Test connection
       run: |
-        ssh ${{ vars.CACHE_USER }}@${{ vars.CACHE_SERVER }} echo "Hello from cache server!"
+        ssh ${{ vars.CACHE_USER }}@${{ vars.CACHE_SERVER }} echo "Hello from cache server"
     - name: Install Nix
       uses: cachix/install-nix-action@v20
       with:
