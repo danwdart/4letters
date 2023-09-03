@@ -25,7 +25,7 @@ jobs:
         ${{ secrets.SSH_PRIVATE_KEY }}
         EOT > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-    - name: Setup Zhang
+    - name: Setup private cache server
       run: |
         ssh-keyscan -t rsa cache.jolharg.com >> ~/.ssh/known_hosts
     - name: Setup Cachix
@@ -39,6 +39,6 @@ jobs:
     - name: Push to Cachix
       run: |
         nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result/shell --indirect) | cachix push dandart
-    - name: Push to Zhang
+    - name: Push to private cache server
       run: |
         nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result/shell --indirect) | xargs nix-copy-closure --gzip -s --include-outputs dwd@cache.jolharg.com
