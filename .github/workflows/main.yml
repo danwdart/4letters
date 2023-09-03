@@ -11,10 +11,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Install Nix
-      uses: cachix/install-nix-action@v20
-      with:
-        nix_path: nixpkgs=channel:nixos-unstable
     - name: Setup SSH key
       # uses: webfactory/ssh-agent@v0.7.0
       # with:
@@ -22,12 +18,19 @@ jobs:
       run: |
         mkdir -p ~/.ssh/
         cat << EOT
-        ${{ secrets.SSH_PRIVATE_KEY }}
+          ${{ secrets.SSH_PRIVATE_KEY }}
         EOT > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
     - name: Setup private cache server
       run: |
-        ssh-keyscan -t rsa cache.jolharg.com >> ~/.ssh/known_hosts
+        ssh-keyscan -t rsa ${{ env.CACHE_SERVER }} >> ~/.ssh/known_hosts
+    - name: Test connection
+      run: |
+        ssh ${{ env.CACHE_SERVER }} echo "Hello from cache server!"
+    - name: Install Nix
+      uses: cachix/install-nix-action@v20
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
     - name: Setup Cachix
       uses: cachix/cachix-action@v11
       with:
@@ -41,4 +44,4 @@ jobs:
         nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result/shell --indirect) | cachix push dandart
     - name: Push to private cache server
       run: |
-        nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result/shell --indirect) | xargs nix-copy-closure --gzip -s --include-outputs dwd@cache.jolharg.com
+        nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result/shell --indirect) | xargs nix-copy-closure --gzip -s --include-outputs ${{ env.CACHE_USER }}@${{ env.CACHE_SERVER }}
