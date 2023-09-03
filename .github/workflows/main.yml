@@ -20,7 +20,7 @@ jobs:
       # with:
       #   ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
-        echo <<< EOF
+        echo <<<EOF
         ${{ secrets.SSH_PRIVATE_KEY }}
         EOF > ~/.ssh/id_ed25519
     - name: Setup Zhang
