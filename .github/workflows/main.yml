@@ -11,6 +11,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+    - name: Check SSH connection
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ vars.CACHE_SERVER }}
+        username: ${{ vars.CACHE_USER }}
+        port: 22
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          echo "Hello World"
+          whoami
     - name: Setup SSH key
       # uses: webfactory/ssh-agent@v0.7.0
       # with:
