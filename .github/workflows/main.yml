@@ -23,7 +23,8 @@ jobs:
         mkdir -p ~/.ssh/
         echo << EOT
         ${{ secrets.SSH_PRIVATE_KEY }}
-        EOT > ~/.ssh/id_ed25519
+        EOT > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
     - name: Setup Zhang
       run: |
         ssh-keyscan -H zhang.jolharg.com >> ~/.ssh/known_hosts
