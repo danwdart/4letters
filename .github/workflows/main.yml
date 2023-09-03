@@ -20,7 +20,9 @@ jobs:
       # with:
       #   ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
-        echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_ed25519
+        echo <<< EOF
+          ${{ secrets.SSH_PRIVATE_KEY }}
+        EOF > ~/.ssh/id_ed25519
     - name: Setup Zhang
       run: |
         ssh-keyscan -H zhang.jolharg.com >> ~/.ssh/known_hosts
