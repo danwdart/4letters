@@ -19,6 +19,9 @@ jobs:
       uses: webfactory/ssh-agent@v0.7.0
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Setup Zhang
+      run: |
+        ssh-keyscan -H zhang.jolharg.com >> ~/.ssh/known_hosts
     - name: Setup Cachix
       uses: cachix/cachix-action@v11
       with:
