@@ -21,9 +21,9 @@ jobs:
       #   ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
         mkdir -p ~/.ssh/
-        echo << EOF
+        echo << EOT
         ${{ secrets.SSH_PRIVATE_KEY }}
-        EOF > ~/.ssh/id_ed25519
+        EOT > ~/.ssh/id_ed25519
     - name: Setup Zhang
       run: |
         ssh-keyscan -H zhang.jolharg.com >> ~/.ssh/known_hosts
