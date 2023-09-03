@@ -11,9 +11,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Show my IP
-      run: |
-        ip addr
     - name: Setup SSH key
       # uses: webfactory/ssh-agent@v0.7.0
       # with:
@@ -31,7 +28,7 @@ jobs:
         ssh-keyscan -t rsa ${{ vars.CACHE_SERVER }} >> ~/.ssh/known_hosts
     - name: Test connection
       run: |
-        ssh ${{ vars.CACHE_SERVER }} echo "Hello from cache server!"
+        ssh ${{ vars.CACHE_USER }}@${{ vars.CACHE_SERVER }} echo "Hello from cache server!"
     - name: Install Nix
       uses: cachix/install-nix-action@v20
       with:
