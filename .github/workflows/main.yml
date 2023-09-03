@@ -27,7 +27,7 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
     - name: Setup Zhang
       run: |
-        ssh-keyscan -H zhang.jolharg.com >> ~/.ssh/known_hosts
+        ssh-keyscan -t rsa zhang.jolharg.com >> ~/.ssh/known_hosts
     - name: Setup Cachix
       uses: cachix/cachix-action@v11
       with:
