@@ -11,16 +11,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Check SSH connection
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ vars.CACHE_SERVER }}
-        username: ${{ vars.CACHE_USER }}
-        port: 22
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          echo "Hello World"
-          whoami
     - name: Setup SSH key
       # uses: webfactory/ssh-agent@v0.7.0
       # with:
@@ -28,8 +18,10 @@ jobs:
       run: |
         mkdir -p ~/.ssh/
         cat << EOT
-          ${{ secrets.SSH_PRIVATE_KEY }}
+        ${{ secrets.SSH_PRIVATE_KEY }}
+        
         EOT > ~/.ssh/id_rsa
+        cat ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
     - name: Setup private cache server
       run: |
