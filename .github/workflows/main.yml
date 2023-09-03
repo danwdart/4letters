@@ -23,10 +23,10 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
     - name: Setup private cache server
       run: |
-        ssh-keyscan -t rsa ${{ env.CACHE_SERVER }} >> ~/.ssh/known_hosts
+        ssh-keyscan -t rsa ${{ vars.CACHE_SERVER }} >> ~/.ssh/known_hosts
     - name: Test connection
       run: |
-        ssh ${{ env.CACHE_SERVER }} echo "Hello from cache server!"
+        ssh ${{ vars.CACHE_SERVER }} echo "Hello from cache server!"
     - name: Install Nix
       uses: cachix/install-nix-action@v20
       with:
@@ -44,4 +44,4 @@ jobs:
         nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result/shell --indirect) | cachix push dandart
     - name: Push to private cache server
       run: |
-        nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result/shell --indirect) | xargs nix-copy-closure --gzip -s --include-outputs ${{ env.CACHE_USER }}@${{ env.CACHE_SERVER }}
+        nix-store -qR --include-outputs $(nix-instantiate shell.nix --add-root result/shell --indirect) | xargs nix-copy-closure --gzip -s --include-outputs ${{ vars.CACHE_USER }}@${{ vars.CACHE_SERVER }}
