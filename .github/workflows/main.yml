@@ -26,8 +26,8 @@ jobs:
         EOF > ~/.ssh/id_ed25519
     - name: Setup Zhang
       run: |
+        ssh-add ~/.ssh/id_ed25519
         ssh-keyscan -H zhang.jolharg.com >> ~/.ssh/known_hosts
-        ssh-agent
     - name: Setup Cachix
       uses: cachix/cachix-action@v11
       with:
