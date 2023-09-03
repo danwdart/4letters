@@ -15,9 +15,7 @@ jobs:
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-    - name: Setup private cache server known host
-      run: |
-        ssh-keyscan -t rsa ${{ vars.CACHE_SERVER }} >> ~/.ssh/known_hosts
+        known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
     - name: Install Nix
       uses: cachix/install-nix-action@v20
       with:
