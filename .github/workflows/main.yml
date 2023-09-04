@@ -25,6 +25,11 @@ jobs:
       with:
         name: dandart
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - name: Set up all Nix caches
+      uses: zombiezen/setup-nix-cache-action@v0.1.0
+      with:
+        substituters: ${{ vars.CACHE_SUBSTITUTERS }}
+        secret_keys: ${{ vars.CACHE_TRUSTED_PUBLIC_KEYS }}
     - name: Build
       run: |
         nix-build
