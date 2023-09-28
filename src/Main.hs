@@ -1,13 +1,13 @@
 module Main where
 
-import           Data.List.Extra                 (group, nubOrdOn, sort)
-import qualified Parser.Words.EnglishDigits      as EnDig
--- import qualified Parser.Words.FrenchDigits as FrDig
-import           Data.Bifunctor                  (Bifunctor (first))
-import qualified Parser.Words.Binary             as BinDig
-import qualified Parser.Words.BinaryOh           as BinDigOh
-import qualified Parser.Words.BinaryOhWithSpaces as BinDigOhSpaces
-import qualified Parser.Words.BinaryWithSpaces   as BinDigSpaces
+import Data.List.Extra                 (group, nubOrdOn, sort)
+import Parser.Words.EnglishDigits      qualified as EnDig
+-- import Parser.Words.FrenchDigits qualified as FrDig
+import Data.Bifunctor                  (Bifunctor (first))
+import Parser.Words.Binary             qualified as BinDig
+import Parser.Words.BinaryOh           qualified as BinDigOh
+import Parser.Words.BinaryOhWithSpaces qualified as BinDigOhSpaces
+import Parser.Words.BinaryWithSpaces   qualified as BinDigSpaces
 
 takeUntilRepeat ∷ Eq a ⇒ [a] → [a]
 takeUntilRepeat [] = []

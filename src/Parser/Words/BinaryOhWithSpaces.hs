@@ -1,10 +1,10 @@
 {-# LANGUAGE OverloadedLists #-}
 module Parser.Words.BinaryOhWithSpaces (parse) where
 
-import           Data.Digits
-import           Data.Map    (Map)
-import qualified Data.Map    as Map
-import           Data.Maybe  (mapMaybe)
+import Data.Digits
+import Data.Map    (Map)
+import Data.Map    qualified as Map
+import Data.Maybe  (mapMaybe)
 
 wordMap ∷ Map Integer String
 wordMap = [

@@ -2,10 +2,10 @@
 {-# LANGUAGE OverloadedLists #-}
 module Parser.Words.FrenchDigits (parse) where
 
-import           Data.Map   (Map)
-import qualified Data.Map   as Map
-import           Data.Maybe
-import           Text.Read
+import Data.Map   (Map)
+import Data.Map   qualified as Map
+import Data.Maybe
+import Text.Read
 
 charToInteger ∷ Char → Maybe Integer
 charToInteger = readMaybe . pure

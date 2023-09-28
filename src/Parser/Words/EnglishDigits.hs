@@ -1,9 +1,9 @@
 {-# LANGUAGE OverloadedLists #-}
 module Parser.Words.EnglishDigits (parse) where
-import           Data.Map   (Map)
-import qualified Data.Map   as Map
-import           Data.Maybe
-import           Text.Read  (readMaybe)
+import Data.Map   (Map)
+import Data.Map   qualified as Map
+import Data.Maybe
+import Text.Read  (readMaybe)
 
 charToInteger ∷ Char → Maybe Integer
 charToInteger = readMaybe . pure

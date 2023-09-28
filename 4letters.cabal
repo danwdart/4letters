@@ -21,7 +21,7 @@ executable 4letters
     Parser.Words.EnglishDigits
     Parser.Words.FrenchDigits
   default-language:    GHC2021
-  default-extensions:  DerivingStrategies, UnicodeSyntax
+  default-extensions:  DerivingStrategies, UnicodeSyntax, ImportQualifiedPost
   build-depends:       base >= 4.17.0.0, containers, digits, extra
   hs-source-dirs:      src
   ghc-options:         -Wall -Werror -haddock -threaded -rtsopts -with-rtsopts=-N
@@ -32,5 +32,4 @@ executable 4letters
                        -Wno-implicit-prelude
                        -Wno-missing-safe-haskell-mode
                        -Wno-missing-kind-signatures
-                       -Wno-prepositive-qualified-module
                        -Wno-missing-local-signatures
