@@ -1,4 +1,4 @@
-module Main where
+module Main (main) where
 
 import Data.List.Extra                 (group, nubOrdOn, sort)
 import Parser.Words.EnglishDigits      qualified as EnDig
