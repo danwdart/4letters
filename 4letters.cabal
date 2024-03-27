@@ -28,7 +28,7 @@ library
     UnicodeSyntax
 
   build-depends:
-    , base        >=4.17.0.0
+    , base        >=4.18.0.0
     , containers
     , digits
 
@@ -38,7 +38,7 @@ library
     -Weverything -Wno-unsafe -Wno-safe -Wno-missing-import-lists
     -Wno-missing-export-lists -Wno-implicit-prelude
     -Wno-missing-safe-haskell-mode -Wno-missing-kind-signatures
-    -Wno-missing-local-signatures
+    -Wno-missing-local-signatures -Wno-all-missed-specialisations
 
 executable 4letters
   main-is:            Main.hs
@@ -50,7 +50,7 @@ executable 4letters
 
   build-depends:
     , 4letters
-    , base      >=4.17.0.0
+    , base      >=4.18.0.0
     , extra
 
   hs-source-dirs:     src
@@ -59,4 +59,4 @@ executable 4letters
     -Weverything -Wno-unsafe -Wno-safe -Wno-missing-import-lists
     -Wno-missing-export-lists -Wno-implicit-prelude
     -Wno-missing-safe-haskell-mode -Wno-missing-kind-signatures
-    -Wno-missing-local-signatures
+    -Wno-missing-local-signatures -Wno-all-missed-specialisations
