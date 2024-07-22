@@ -29,8 +29,7 @@ let
     buildInputs = tools.defaultBuildTools;
     withHoogle = false;
   };
-  exe = lib.justStaticExecutables (myHaskellPackages.fourletters);
-in
+  in
 {
   inherit shell;
   fourletters = lib.justStaticExecutables (myHaskellPackages.fourletters);
