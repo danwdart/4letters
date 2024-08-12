@@ -1,4 +1,4 @@
-name: "4 Letters"
+name: "Nix"
 on:
   schedule:
     - cron: "0 2 * * *"
