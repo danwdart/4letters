@@ -59,5 +59,3 @@ jobs:
       run: cabal test all
     - name: Generate distribution
       run: cabal new-sdist
-    - name: List available files
-      run: ${{ runner.findDirs }}
