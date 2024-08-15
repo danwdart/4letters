@@ -21,7 +21,7 @@ jobs:
           - os: macOS-latest
             exeName: 4letters-darwin-x86_64
           - os: windows-latest
-            exeName: 4letters-windiws-x86_64.exe
+            exeName: 4letters-windows-x86_64.exe
         
     steps:
     - uses: actions/checkout@v4
