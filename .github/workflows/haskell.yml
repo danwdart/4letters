@@ -15,20 +15,27 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        ghc: ['9.10.1', '9.8.2']
-        cabal: ['3.12.1.0', '3.10.3.0']
+        include:
+          - os: ubuntu-latest
+            findDirs: find
+          - os: macOS-latest
+            findDirs: find
+          - os: windows-latest
+            findDirs: tree
+          
         os: [ubuntu-latest, macOS-latest, windows-latest]
         ##exclude:
         #  # GHC 8.8+ only works with cabal v3+
         #  - ghc: 8.8.4
         #    cabal: 2.4.1.0
+    
 
     steps:
     - uses: actions/checkout@v4
     - uses: haskell-actions/setup@v2
       with:
-        ghc-version: ${{ matrix.ghc }}
-        cabal-version: ${{ matrix.cabal }}
+        ghc-version: '9.10.1'
+        cabal-version: '3.12.1.0'
 
     - name: Cache
       uses: actions/cache@v3
@@ -47,6 +54,10 @@ jobs:
         cabal update
         cabal build --only-dependencies --enable-tests --enable-benchmarks
     - name: Build
-      run: cabal build --enable-tests --enable-benchmarks all
+      run: cabal new-build --enable-tests --enable-benchmarks all
     - name: Run tests
       run: cabal test all
+    - name: Generate distribution
+      run: cabal new-sdist
+    - name: List available files
+      run: ${{ runner.findDirs }}
