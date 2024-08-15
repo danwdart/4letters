@@ -52,6 +52,7 @@ jobs:
     - name: Get executable path
       id: get-path
       run: echo "path=$(cabal list-bin 4letters)" >> $GITHUB_OUTPUT
+      shell: bash
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
