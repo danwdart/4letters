@@ -1,5 +1,4 @@
 name: Haskell
-
 on:
   push:
     branches: [ "main" ]
@@ -7,7 +6,7 @@ on:
     branches: [ "main" ]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
