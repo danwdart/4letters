@@ -17,19 +17,12 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            findDirs: find
+            exeName: 4letters-linux-x86_64
           - os: macOS-latest
-            findDirs: find
+            exeName: 4letters-darwin-x86_64
           - os: windows-latest
-            findDirs: tree
-          
-        os: [ubuntu-latest, macOS-latest, windows-latest]
-        ##exclude:
-        #  # GHC 8.8+ only works with cabal v3+
-        #  - ghc: 8.8.4
-        #    cabal: 2.4.1.0
-    
-
+            exeName: 4letters-windiws-x86_64.exe
+        
     steps:
     - uses: actions/checkout@v4
     - uses: haskell-actions/setup@v2
@@ -57,5 +50,10 @@ jobs:
       run: cabal new-build --enable-tests --enable-benchmarks all
     - name: Run tests
       run: cabal test all
-    - name: Generate distribution
-      run: cabal new-sdist
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: $(cabal list-bin 4letters)
+        asset_name: ${{ matrix.exeName }}
+        tag: ${{ github.ref }}
