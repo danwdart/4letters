@@ -18,7 +18,7 @@ jobs:
           - os: ubuntu-latest
             exeName: 4letters-linux-x86_64
           - os: macOS-latest
-            exeName: 4letters-darwin-x86_64
+            exeName: 4letters-darwin-aarch64
           - os: windows-latest
             exeName: 4letters-windows-x86_64.exe
         
