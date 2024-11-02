@@ -22,9 +22,7 @@ library
     Parser.Words.FrenchDigits
 
   default-language:   GHC2024
-  default-extensions:
-    UnicodeSyntax
-
+  default-extensions: UnicodeSyntax
   build-depends:
     , base        >=4.20.0.0
     , containers
@@ -43,9 +41,7 @@ library
 executable 4letters
   main-is:            Main.hs
   default-language:   GHC2024
-  default-extensions:
-    UnicodeSyntax
-
+  default-extensions: UnicodeSyntax
   build-depends:
     , 4letters
     , base      >=4.20.0.0
