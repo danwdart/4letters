@@ -21,10 +21,8 @@ library
     Parser.Words.EnglishDigits
     Parser.Words.FrenchDigits
 
-  default-language:   GHC2021
+  default-language:   GHC2024
   default-extensions:
-    DerivingStrategies
-    ImportQualifiedPost
     UnicodeSyntax
 
   build-depends:
@@ -44,10 +42,8 @@ library
 
 executable 4letters
   main-is:            Main.hs
-  default-language:   GHC2021
+  default-language:   GHC2024
   default-extensions:
-    DerivingStrategies
-    ImportQualifiedPost
     UnicodeSyntax
 
   build-depends:
