@@ -1,12 +1,13 @@
 {-# LANGUAGE OverloadedLists #-}
 module Parser.Words.EnglishDigits (parse) where
+import Data.List  qualified as L
 import Data.Map   (Map)
 import Data.Map   qualified as Map
 import Data.Maybe
 import Text.Read  (readMaybe)
 
 charToInteger ∷ Char → Maybe Integer
-charToInteger = readMaybe . pure
+charToInteger = readMaybe . L.singleton
 
 wordMap ∷ Map Integer String
 wordMap = [

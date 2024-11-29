@@ -6,6 +6,7 @@ import Data.List.Extra                 (group, nubOrdOn, sort)
 import Parser.Words.EnglishDigits      qualified as EnDig
 -- import Parser.Words.FrenchDigits qualified as FrDig
 import Data.Bifunctor                  (Bifunctor (first))
+import Data.Foldable
 import Parser.Words.Binary             qualified as BinDig
 import Parser.Words.BinaryOh           qualified as BinDigOh
 import Parser.Words.BinaryOhWithSpaces qualified as BinDigOhSpaces
@@ -48,10 +49,10 @@ main = do
     putStrLn "Binary (oh) with spaces, smallest digits with longest length"
     print $ biggest BinDigOhSpaces.parse
     putStrLn "Binary, proportions"
-    mapM_ print . freq . fmap snd . contract $ alls BinDig.parse
+    traverse_ print . freq . fmap snd . contract $ alls BinDig.parse
     putStrLn "Binary with spaces, except 21s"
-    mapM_ print . filter ((/= 21) . snd) . contract $ alls BinDigSpaces.parse
+    traverse_ print . filter ((/= 21) . snd) . contract $ alls BinDigSpaces.parse
     putStrLn "Binary (oh), proportions"
-    mapM_ print . freq . fmap snd . contract $ alls BinDigOh.parse
+    traverse_ print . freq . fmap snd . contract $ alls BinDigOh.parse
     putStrLn "Binary (oh) with spaces, except 15s"
-    mapM_ print . filter ((/= 15) . snd) . contract $ alls BinDigOhSpaces.parse
+    traverse_ print . filter ((/= 15) . snd) . contract $ alls BinDigOhSpaces.parse
