@@ -1,9 +1,7 @@
-name: Haskell Release Main
+name: Haskell Release Nightly
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+    - cron: "0 2 * * *"
 
 permissions:
   contents: write
@@ -16,11 +14,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            exeName: 4letters-linux-x86_64
+            exeName: 4letters-nightly-linux-x86_64
           - os: macOS-latest
-            exeName: 4letters-darwin-aarch64
+            exeName: 4letters-nightly-darwin-aarch64
           - os: windows-latest
-            exeName: 4letters-windows-x86_64.exe
+            exeName: 4letters-nightly-windows-x86_64.exe
         
     steps:
     - uses: actions/checkout@v4
