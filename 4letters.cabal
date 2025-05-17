@@ -1,8 +1,8 @@
-cabal-version:      3.4
+cabal-version:      3.12
 
 -- Newer versions complain
 name:               4letters
-version:            0.0.2
+version:            0.2.0.0
 synopsis:           Inspired by Matt Parker's "Four has Four Letters"
 homepage:           https://github.com/danwdart/4letters
 license:            MIT
@@ -24,9 +24,9 @@ library
   default-language:   GHC2024
   default-extensions: UnicodeSyntax
   build-depends:
-    , base        >=4.20.0.0
-    , containers
-    , digits
+    , base        ^>=4.21.0.0
+    , containers  ^>=0.8
+    , digits      ^>=0.3.1
 
   hs-source-dirs:     lib
   ghc-options:
@@ -43,9 +43,9 @@ executable 4letters
   default-language:   GHC2024
   default-extensions: UnicodeSyntax
   build-depends:
-    , 4letters
-    , base      >=4.20.0.0
-    , extra
+    , 4letters  ^>=0.2.0.0
+    , base      ^>=4.21.0.0
+    , extra     ^>=1.8
 
   hs-source-dirs:     src
   ghc-options:
