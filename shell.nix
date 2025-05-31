@@ -1,6 +1,4 @@
-with import (builtins.fetchTarball 
-    "https://github.com/NixOS/nixpkgs/archive/refs/heads/haskell-updates.tar.gz"
-) {};
+with import <nixpkgs> {};
 # needs mkShell in order to use headers/etc. from deps! how do we do that from nix-shell 
 mkShell rec {
     packages = [
