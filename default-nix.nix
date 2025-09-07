@@ -2,15 +2,15 @@
   nixpkgs ? import <nixpkgs> {},
   compiler ? "ghc912",
   haskell-tools ? import (builtins.fetchTarball "https://github.com/danwdart/haskell-tools/archive/master.tar.gz") {
-    nixpkgs = nixpkgs;
-    compiler = compiler;
+    inherit nixpkgs;
+    inherit compiler;
   }
 }:
 let
   gitignore = nixpkgs.nix-gitignore.gitignoreSourcePure [ ./.gitignore ];
-  haskell = nixpkgs.pkgs.haskell;
+  inherit (nixpkgs.pkgs) haskell;
   haskellPackages = haskell.packages;
-  lib = haskell.lib;
+  inherit (haskell) lib;
   tools = haskell-tools compiler;
   myHaskellPackages = haskellPackages.${compiler}.override {
     overrides = self: super: rec {
@@ -28,7 +28,7 @@ let
     ];
     shellHook = ''
       gen-hie > hie.yaml
-      for i in $(find -type f | grep -v "dist-*"); do krank $i; done
+      for i in $(find . -type f | grep -v "dist-*"); do krank $i; done
     '';
     buildInputs = tools.defaultBuildTools;
     withHoogle = false;
@@ -36,5 +36,5 @@ let
   in
 {
   inherit shell;
-  fourletters = lib.justStaticExecutables (myHaskellPackages.fourletters);
+  fourletters = lib.justStaticExecutables myHaskellPackages.fourletters;
 }
