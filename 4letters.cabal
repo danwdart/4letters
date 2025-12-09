@@ -24,7 +24,7 @@ library
   default-language:   GHC2024
   default-extensions: UnicodeSyntax
   build-depends:
-    , base        >=4.21.0.0 && <4.23.0.0
+    , base        >=4.21 && <4.23
     , containers  ^>=0.8
     , digits      ^>=0.3.1
 
@@ -50,8 +50,8 @@ executable 4letters
   default-language:   GHC2024
   default-extensions: UnicodeSyntax
   build-depends:
-    , 4letters  ^>=0.2.0.0
-    , base      >=4.21.0.0 && <4.23.0.0
+    , 4letters  ^>=0.2
+    , base      >=4.21 && <4.23
     , extra     ^>=1.8
 
   hs-source-dirs:     src
