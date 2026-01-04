@@ -1,4 +1,4 @@
-cabal-version:      3.12
+cabal-version:      3.14
 
 -- Newer versions complain
 name:               4letters
@@ -7,9 +7,9 @@ synopsis:           Inspired by Matt Parker's "Four has Four Letters"
 homepage:           https://github.com/danwdart/4letters
 license:            MIT
 author:             Dan Dart
-maintainer:         git@dandart.co.uk
+maintainer:         cabal@dandart.co.uk
 category:           Math
-extra-source-files: CHANGELOG.md
+extra-doc-files:    CHANGELOG.md
 build-type:         Simple
 
 library
