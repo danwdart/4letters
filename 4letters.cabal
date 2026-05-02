@@ -6,7 +6,7 @@ version:            0.2.0.0
 synopsis:           Inspired by Matt Parker's "Four has Four Letters"
 homepage:           https://github.com/danwdart/4letters
 license:            MIT
-author:             Dan Dart
+author:             Ember Dart
 maintainer:         cabal@dandart.co.uk
 category:           Math
 extra-doc-files:    CHANGELOG.md
