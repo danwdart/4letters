@@ -1,13 +1,13 @@
 cabal-version:      3.14
 
 -- Newer versions complain
-name:               4letters
+name:               fourletters
 version:            0.2.0.0
 synopsis:           Inspired by Matt Parker's "Four has Four Letters"
-homepage:           https://github.com/danwdart/4letters
+homepage:           https://github.com/emberdart/fourletters
 license:            MIT
 author:             Ember Dart
-maintainer:         cabal@dandart.co.uk
+maintainer:         cabal@emberdart.co.uk
 category:           Math
 extra-doc-files:    CHANGELOG.md
 build-type:         Simple
@@ -45,12 +45,12 @@ library
     -Wno-missing-role-annotations -Wno-missing-poly-kind-signatures
     -Wno-unrecognised-warning-flags
 
-executable 4letters
+executable fourletters
   main-is:            Main.hs
   default-language:   GHC2024
   default-extensions: UnicodeSyntax
   build-depends:
-    , 4letters  ^>=0.2
+    , fourletters  ^>=0.2
     , base      ^>=4.22
     , extra     ^>=1.8
 

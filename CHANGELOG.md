@@ -1,4 +1,4 @@
-# Revision history for 4letters
+# Revision history for fourletters
 
 ## 0.0.2 -- YYYY-mm-dd
 

@@ -11,6 +11,7 @@ let cabalPkgs = [
     { name = "haskell-debug-adapter"; ver = "0.0.42.0"; flags = "--allow-newer=aeson,bytestring,containers,deepseq,template-haskell,time"; }
     { name = "haskell-language-server"; ver = "2.13.0.0"; flags = "--allow-newer=containers,deepseq,ghc,hiedb,template-haskell,time,websockets"; }
     { name = "hasktags"; ver = "0.73.0"; }
+    { name = "hindent"; ver = "6.3.0"; flags = "--allow-newer=ghc-lib-parser"; }
     { name = "hlint"; ver = "3.10"; flags = "--allow-newer=template-haskell"; }
     { name = "hoogle"; ver = "5.0.19.0"; flags = "--allow-newer=template-haskell"; }
     { name = "hpack"; ver = "0.39.3"; flags = "--allow-newer=template-haskell"; }
@@ -29,9 +30,9 @@ mkShell rec {
         cabal update >/dev/null
         set -euo pipefail
         ${lib.concatStringsSep "\n" (builtins.map ({name, exe ? name, ver, flags ? ""}:
-            "[[ -f ~/.local/bin/${exe} ]] || echo cabal install ${name}-${ver} ${flags} >&2"
+            "[[ -f $HOME/.local/bin/${exe} ]] || echo cabal install ${name}-${ver} ${flags} >&2"
         ) cabalPkgs)}        
-        export PATH="~/.local/bin:$PATH"
+        export PATH="$HOME/.local/bin:$PATH"
         # gen-hie > hie.yaml
         # for i in $(find . -type f | grep -v "dist-*"); do krank $i || : >&2; done
     '';
