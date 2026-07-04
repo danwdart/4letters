@@ -14,11 +14,11 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            exeName: 4letters-nightly-linux-x86_64
+            exeName: fourletters-nightly-linux-x86_64
           - os: macOS-latest
-            exeName: 4letters-nightly-darwin-aarch64
+            exeName: fourletters-nightly-darwin-aarch64
           - os: windows-latest
-            exeName: 4letters-nightly-windows-x86_64.exe
+            exeName: fourletters-nightly-windows-x86_64.exe
         
     steps:
     - uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
       run: cabal test all
     - name: Get executable path
       id: get-path
-      run: echo "path=$(cabal list-bin 4letters)" >> $GITHUB_OUTPUT
+      run: echo "path=$(cabal list-bin fourletters)" >> $GITHUB_OUTPUT
       shell: bash
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
