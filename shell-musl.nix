@@ -8,7 +8,7 @@ mkShell rec {
     ];
     # shellHook = ''
     #     # no krank yet
-    #     [[ -f $HOME/.local/bin/ghcid ]] || cabal install cabal-add cabal-fmt ghcid haskell-debug-adapter hasktags hoogle hpack implicit-hie krank --allow-newer
+    #     [[ -f $HOME/.local/bin/ghcid ]] || cabal install cabal-add cabal-fmt ghcid haskell-debug-adapter haskell-debugger hasktags hoogle hpack implicit-hie krank --allow-newer
     #     export PATH=$HOME/.local/bin:$PATH
     #     gen-hie > hie.yaml
     #     for i in $(find . -type f | grep -v "dist-*"); do krank $i; done
