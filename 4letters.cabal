@@ -1,6 +1,4 @@
 cabal-version:      3.14
-
--- Newer versions complain
 name:               fourletters
 version:            0.2.0.0
 synopsis:           Inspired by Matt Parker's "Four has Four Letters"
